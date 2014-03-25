@@ -16,6 +16,10 @@ When sending mail you currently can not send attachments at the same time which 
 
 Logging in method so that several uses can have their own settings saved, therefore having personalized messages etc.
 
+Get the weather for any location.
+
+The use of the speech recoginition is not very good so if anyone has any experience using this namespace I would appreciate if you could show me how to make this code more efficent.
+
 Finally I wish to implement facebook chat into the program aswell as google maps.
 
 
@@ -27,6 +31,7 @@ Go through each class and change the phrase (Insert local username here), I woul
 Wtihin the Speak.cs and the WelcomeAndGoodbye.cs remove the .StartVoice and .EndVoice unless you have installed an additional voice E.G I instaled IVNOA 2 Brian from the IVONA website.
 
 Within the Weather.cs clase find the string 'findWeather'. At the end of this string you will see it ends with 'w='. At the end of this add in the WOEID for your area, this can be found at http://woeid.rosselliot.co.nz/.
+Also within the Jarvis.cs class change the town name, I currently have it set as 'halesowen' however it is possible to get the town name from the returned xml document using the XML namespace.
 
 Within the ExamPapers.cs class I search the AQA.org website for exam papers for my current A-Levels, this may or may not be applicable to you. If it is replace the modules (E.G 'ACCN4') with your own module code. (This section will be improved shortly as there is a lot of repeated code).
 

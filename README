@@ -9,20 +9,36 @@ And finally it performs simple tasks such as a google search, searching for file
 
 Changes I aim to implement:
 Currently the program only searches the downloads folder as I mainly use it to find movies faster, however when I attempt to search the whole of the C: drive I run into unauthorized access errors which completly stop the search.
+
 The ExamPapers.cs class is quite messy and alot of the code is repeated so I aim to clear that up greatly.
+
 When sending mail you currently can not send attachments at the same time which would be ideal.
+
 Logging in method so that several uses can have their own settings saved, therefore having personalized messages etc.
+
 Finally I wish to implement facebook chat into the program aswell as google maps.
 
+
+
 Changes to be made when trying to run the program yourself:
+
 Go through each class and change the phrase (Insert local username here), I would recommend doing this using the find and replace feature.
+
 Wtihin the Speak.cs and the WelcomeAndGoodbye.cs remove the .StartVoice and .EndVoice unless you have installed an additional voice E.G I instaled IVNOA 2 Brian from the IVONA website.
+
 Within the Weather.cs clase find the string 'findWeather'. At the end of this string you will see it ends with 'w='. At the end of this add in the WOEID for your area, this can be found at http://woeid.rosselliot.co.nz/.
+
 Within the ExamPapers.cs class I search the AQA.org website for exam papers for my current A-Levels, this may or may not be applicable to you. If it is replace the modules (E.G 'ACCN4') with your own module code. (This section will be improved shortly as there is a lot of repeated code).
+
 The ITunes Controller command interacts with another program I have created which allows me to control my ITunes with normal buttons (E.G Next song, Play, ETC.) and also allows me to search for specific songs, which, if they cannot be found are then searched for on youtube. I currently have no plans to release this as it is very basic and may no longer work. Therefore it may be worth removing this command.
+
 A few commands open up games I often play/watch therefore it may be worth removing them if you install it.
+
 The ToDo command simply allows me to either be read what I have in the ToDo file or append more todos to the file. Feel free to overright this with your own notes of what you have to do.
+
 The swtich window command is quite buggy and will be looked at soon.
+
+
 
 If you got this far thank you for reading :).
 

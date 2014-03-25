@@ -2,7 +2,8 @@ Simple command and response program written in C#.
 
 This program is a collect of libraries and APIs I have looked at briefly to see how they work and what they could be used for. It is still in a very early development stage and I accept any changes/additions you feel would make this program better.
 
-The main aim of this progect was to create a simplistic J.A.R.V.I.S from iron man films, however has turned out to be more of a virtual assistant. The program is written in C# and uses the Speech namespace to interact with the user.
+The main aim of this progect was to create a simplistic J.A.R.V.I.S from iron man films, however has turned out to be more of a virtual assistant.
+The program is written in C# and uses the Speech namespace to interact with the user.
 Alongside this the software interacts with the outlook application both openning the software, using the send/recieve function, sending mail and using the calander.
 It also uses the Yahoo! weather api to obtain the weather at the current time and for the next day using the XML namespace to convert the data.
 Additionally it performs simple tasks such as a google search, searching for files and obtaining exam papers for myself.
@@ -42,6 +43,8 @@ A few commands open up games I often play/watch therefore it may be worth removi
 The ToDo command simply allows me to either be read what I have in the ToDo file or append more todos to the file. Feel free to overright this with your own notes of what you have to do.
 
 The swtich window command is quite buggy and will be looked at soon.
+
+There are also places where I have not yet converted it from the original console application therefore it may break at certain sections.
 
 
 

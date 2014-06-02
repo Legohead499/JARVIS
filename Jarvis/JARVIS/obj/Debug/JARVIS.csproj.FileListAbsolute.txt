@@ -1,0 +1,14 @@
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\bin\Debug\JARVIS.exe.config
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\bin\Debug\JARVIS.exe
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\bin\Debug\JARVIS.pdb
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\Interop.iTunesLib.dll
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\JARVIS.csproj.ResolveComReference.cache
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\JARVIS.googleOther.resources
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\JARVIS.Jarvis.resources
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\JARVIS.Properties.Resources.resources
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\JARVIS.Search.resources
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\JARVIS.sendMailInput.resources
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\JARVIS.csproj.GenerateResource.Cache
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\JARVIS.exe
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\JARVIS.pdb
+C:\Users\Alex\Documents\Visual Studio 2013\Projects\JARVIS\JARVIS\obj\Debug\JARVIS.csprojResolveAssemblyReference.cache

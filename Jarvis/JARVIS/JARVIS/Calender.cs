@@ -21,7 +21,7 @@ namespace JARVIS
             try
             {
                 DateTime start = DateTime.Now;
-                DateTime end = start.AddDays(5);
+                DateTime end = start.AddDays(7);
                 int index = 1;
                 bool appointmentFound = false;
 

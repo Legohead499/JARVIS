@@ -27,7 +27,7 @@ namespace JARVIS
             //whatToSay[1] = Subject
             //whatToSay[2] = Date       
             string[] date = whatToSay[2].Split('/');
-            string newDate = date[1] + "." + date[0];
+            string newDate = date[1] + "/" + date[0];
             //whatToSay[3] = Time
             string[] time = whatToSay[3].Split(':');
             string newTime = time[0] + ":" + time[1];
@@ -43,11 +43,12 @@ namespace JARVIS
             appointmentBuilder.EndVoice();
 
             JARVIS.Speak(appointmentBuilder);
+            appointmentBuilder.ClearContent();
         }
 
         public void sayAppointmentError()
         {
-            JARVIS.Speak("No Appointments found.");
+            JARVIS.Speak("No Appointments found for the next 7 days.");
         }
 
         public void searchFor()

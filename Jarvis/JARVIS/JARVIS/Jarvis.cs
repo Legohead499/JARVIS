@@ -83,13 +83,10 @@ namespace JARVIS
                 case ("OPEN MAIL"):
                 case ("OPEN EMAIL"):
                 case ("OUTLOOK"):
-                case ("READ MAIL"):
-                case ("READ EMAIL"):
-                case ("READ EMAILS"):
                 case ("SHOW MAIL"):
                 case ("SHOW EMAIL"):
                 case ("SHOW EMAILS"):
-                    readMail();
+                    openMail();
                     break;
 
                 case ("SEND MAIL"):
@@ -98,6 +95,12 @@ namespace JARVIS
                 case ("SEND AN EMAIL"):
                 case ("SEND MESSAGE"):
                     sendMail();
+                    break;
+                    
+                case ("READ MAIL"):
+                case ("READ EMAIL"):
+                case ("READ EMAILS"):
+                    readMail();
                     break;
 
                 case ("SEARCH"):
@@ -345,7 +348,7 @@ namespace JARVIS
         //.....................................................................................................
 
         //......................................Email..........................................................
-        public static void readMail()
+        public static void openMail()
         {
             email = new Email();
             email.openMail();
@@ -355,6 +358,12 @@ namespace JARVIS
         {
             email = new Email();
             email.sendMail();
+        }
+
+        private static void readMail()
+        {
+            email = new Email();
+            email.readMail();
         }
         //.....................................................................................................
 

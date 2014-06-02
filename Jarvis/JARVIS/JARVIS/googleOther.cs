@@ -13,7 +13,6 @@ namespace JARVIS
 {
     public partial class googleOther : Form
     {
-        string toSearch;
         public googleOther()
         {
             InitializeComponent();

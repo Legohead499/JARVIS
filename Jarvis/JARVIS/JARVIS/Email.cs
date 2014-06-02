@@ -24,19 +24,19 @@ namespace JARVIS
             MAPIFolder inbox = outlookNameSpace.GetDefaultFolder(OlDefaultFolders.olFolderInbox);
 
 
-            int newMail = inbox.Items.Count;
+            int newMail = inbox.UnReadItemCount;
             string emailMessage = "";
             if (newMail == 0)
             {
-                emailMessage = ("Openning Outlook, you have no emails");
+                emailMessage = ("Openning Outlook, you have no new emails");
             }
             else if (newMail == 1)
             {
-                emailMessage = ("Openning Outlook, you have one email");
+                emailMessage = ("Openning Outlook, you have one new email");
             }
             else
             {
-                emailMessage = ("Openning Outlook, you have " + newMail + "  emails");
+                emailMessage = ("Openning Outlook, you have " + newMail + " new  emails");
             }
             using (SpeechSynthesizer sayOpenMail = new SpeechSynthesizer())
             {
@@ -120,6 +120,81 @@ namespace JARVIS
                 waitForSend.RecognizeAsyncStop();
             }
             
+        }
+
+        public void readMail()
+        {
+            bool outlookOpen = false;
+            Process[] allProcesses = Process.GetProcesses();
+            foreach (Process item in allProcesses)
+            {
+                if (item.ProcessName.ToString().ToLower().Equals("outlook"))
+                {
+                    outlookOpen = true;
+                }
+            }
+
+            if (!outlookOpen)
+            {
+                Process.Start("outlook.exe");
+            }
+
+            try
+            {
+                NameSpace outlookNameSpace = outLookApp.GetNamespace("MAPI");
+                outlookNameSpace.SendAndReceive(false);
+                MAPIFolder inbox = outlookNameSpace.GetDefaultFolder(OlDefaultFolders.olFolderInbox);
+
+                int amountToRead = 5;
+                int amountOfMail = inbox.Items.Count;
+
+                if (amountOfMail != 0)
+                {
+                    if (amountOfMail < amountToRead)
+                    {
+                        amountToRead = amountOfMail;
+                        Console.WriteLine(amountToRead.ToString());
+                    }                   
+
+                    for (int i = 0; i < amountToRead; i++)
+                    {
+                        MailItem email = inbox.Items[amountToRead - i];
+                        string sender = email.SenderEmailAddress;
+
+                        string subject = email.Subject;
+
+                        string body = email.Body;
+                        if(body.Contains("HYPERLINK"))
+                        {
+                            using(SpeechSynthesizer tooLong = new SpeechSynthesizer())
+                            {
+                                tooLong.Speak("Email too long to repeat");
+                            }
+                        }
+                        else
+                        {
+                            using(SpeechSynthesizer readingMail = new SpeechSynthesizer())
+                            {
+                                readingMail.Speak("Message From: " + sender + ", Message Subject: " + subject +", Message: " + body);
+                            }
+                        }
+
+                    }
+                }
+                else
+                {
+                    using (SpeechSynthesizer noMail = new SpeechSynthesizer())
+                    {
+                        noMail.Speak("No mail in inbox");
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            Console.WriteLine("DONE");
         }
     }
 }

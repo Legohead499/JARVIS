@@ -15,6 +15,9 @@ namespace JARVIS
         public sendMailInput()
         {
             InitializeComponent();
+            sendToInput.Items.Clear();
+            messageInput.Clear();
+            attachmentsList.Items.Clear();
         }
 
         public string getMessage()
@@ -33,7 +36,8 @@ namespace JARVIS
         {
             string[] reciepients = new string[20];
             int index = 0;
-            Console.WriteLine(sendToInput.Items.Count.ToString());
+
+            //Add all the e-mail addresses for the message to be sent to
             foreach (string reciepient in sendToInput.Items)
             {
                 if (!reciepient.Equals(String.Empty))
@@ -53,8 +57,44 @@ namespace JARVIS
 
         private void addToList_Click(object sender, EventArgs e)
         {
-            sendToInput.Items.Add(recipentInput.Text);
+            if (sendToInput.Items.Count != 20)
+            {
+                sendToInput.Items.Add(recipientInput.Text);
+            }
+            else
+            {
+                Speak informToMany = new Speak();
+            }
             Console.WriteLine(sendToInput.Items.Count.ToString());
+        }
+
+        public string[] getAttachments()
+        {
+            string[] attachments = new string[20];
+            int index = 0;
+
+            //Add all the attachment paths
+            foreach (string attachment in attachmentsList.Items)
+            {
+                if (!attachment.Equals(String.Empty))
+                {
+                    attachments[index] = attachment;
+                }
+                index++;
+            }
+            return attachments;      
+        }
+
+        private void addAttachments_Click(object sender, EventArgs e)
+        {
+            //Open up a window to select a file to attach
+            OpenFileDialog attachments = new OpenFileDialog();
+            attachments.Title = "Select a file to attach";
+            attachments.ShowDialog();
+            if (attachments.FileName.Length > 0)
+            {
+                attachmentsList.Items.Add(attachments.FileName);
+            }
         }
     }
 }

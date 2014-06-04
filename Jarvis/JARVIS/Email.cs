@@ -67,6 +67,8 @@ namespace JARVIS
                 string[] recipients = new string[20];
                 string subject = "";
                 string body = "";
+                string[] attachmentPaths = new string[20];
+
                 using (SpeechSynthesizer sendMail = new SpeechSynthesizer())
                 {
 
@@ -76,28 +78,40 @@ namespace JARVIS
 
                     body = mailPreview.getMessage();
 
+                    attachmentPaths = mailPreview.getAttachments();
+
                     sendMail.Speak("Sending Mail");
 
-                    myMail.To = recipients[0];
-
-                    //check for more                    
-                    if (recipients[1] != null)
+                    int attachmentsIndex = 0;
+                    while(attachmentPaths[attachmentsIndex] != null)
                     {
-                        for (int index = 1; index <= recipients.Length - 1; index++)
-                        {
-                            if (recipients[index] != null)
-                            {
-                                myMail.Recipients.Add(recipients[index]);
-                            }
-                        }
+                        myMail.Attachments.Add(attachmentPaths[attachmentsIndex], Microsoft.Office.Interop.Outlook.OlAttachmentType.olByValue,1,attachmentPaths[attachmentsIndex]);
+                        attachmentsIndex++;
                     }
-                    
-                    myMail.Subject = subject;
-                    myMail.Body = body;
-                    myMail.Send();
-                    sendMail.Speak("Sent");
-                    sendMail.Volume = 0;
 
+
+                    int recipientsIndex = 0;
+                    if (recipients[recipientsIndex] != null)
+                    {
+                        myMail.To = recipients[recipientsIndex];
+                        recipientsIndex++;
+
+                        while (recipients[recipientsIndex] != null)
+                        {                            
+                            myMail.Recipients.Add(recipients[recipientsIndex]);
+                            recipientsIndex++;
+                        }
+
+                        myMail.Subject = subject;
+                        myMail.Body = body;
+                        ((Microsoft.Office.Interop.Outlook._MailItem)myMail).Send();
+                        sendMail.Speak("Sent");
+                        sendMail.Volume = 0;
+                    }
+                    else
+                    {
+                        sendMail.Speak("No e-mail address specified");
+                    }
 
                     for (int index = 0; index <= recipients.Length - 1; index++)
                     {

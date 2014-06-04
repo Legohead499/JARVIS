@@ -170,5 +170,11 @@ namespace JARVIS
             JARVIS.Speak("Maximum number of recipients added");
         }
 
+        public void closing()
+        {
+            JARVIS.SpeakAsyncCancelAll();
+            JARVIS.Dispose();
+        }
+
     }
 }

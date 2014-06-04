@@ -253,6 +253,7 @@ namespace JARVIS
                     break;
 
                 case ("ALL PROCESSES"):
+                case("SHOW PROCESSES"):
                     showProcesses();
                     break;
 
@@ -707,6 +708,11 @@ namespace JARVIS
         {
             normalSize();
             JarvisApp.Visible = false;
+        }
+
+        private void Jarvis_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            speak.closing();
         }
     }
 }

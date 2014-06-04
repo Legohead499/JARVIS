@@ -49,6 +49,7 @@
             this.ClientSize = new System.Drawing.Size(629, 355);
             this.Name = "Jarvis";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Jarvis_FormClosing);
             this.Click += new System.EventHandler(this.Jarvis_Click);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Jarvis_MouseDown);
             this.ResumeLayout(false);

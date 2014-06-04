@@ -142,6 +142,7 @@ namespace JARVIS
             Process[] allProcesses = Process.GetProcesses();
             foreach (Process item in allProcesses)
             {
+                Console.WriteLine(item.ProcessName.ToString().ToLower());
                 if (item.ProcessName.ToString().ToLower().Equals("outlook"))
                 {
                     outlookOpen = true;
@@ -178,11 +179,11 @@ namespace JARVIS
                         string subject = email.Subject;
 
                         string body = email.Body;
-                        if(body.Contains("HYPERLINK"))
+                        if(body.Length >= 100)
                         {
                             using(SpeechSynthesizer tooLong = new SpeechSynthesizer())
                             {
-                                tooLong.Speak("Email too long to repeat");
+                                tooLong.Speak("Message From: " + sender + ", Message Subject: " + subject + ", Email too long to repeat");
                             }
                         }
                         else

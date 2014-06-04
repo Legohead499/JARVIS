@@ -28,8 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jarvis));
+            this.JarvisApp = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
+            // 
+            // JarvisApp
+            // 
+            this.JarvisApp.Icon = ((System.Drawing.Icon)(resources.GetObject("JarvisApp.Icon")));
+            this.JarvisApp.Text = "Jarvis App";
+            this.JarvisApp.Visible = true;
+            this.JarvisApp.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.JarvisApp_MouseDoubleClick);
             // 
             // Jarvis
             // 
@@ -47,6 +56,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.NotifyIcon JarvisApp;
     }
 }
 

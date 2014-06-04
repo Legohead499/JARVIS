@@ -1,23 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Speech.Synthesis;
 using System.Speech.Recognition;
 using System.IO;
-using System.Xml;
-using System.Xml.Linq;
 using System.Diagnostics;
-using Microsoft.Office.Interop.Outlook;
 using System.Threading;
-using System.Net;
 using System.Runtime.InteropServices;
 using iTunesLib;
+using Microsoft.Office.Interop.Word;
+using System.Drawing;
 
 namespace JARVIS
 {
@@ -280,6 +270,17 @@ namespace JARVIS
 
                 case ("MOVIES"):
                     loadMovies();
+                    break;
+
+                case ("MINIMIZE"):
+                case ("JARVIS SMALL"):
+                    minimize();
+                    break;
+
+                case ("JARVIS COME BACK"):
+                case ("JARVIS NORMAL"):
+                case ("NORMAL"):
+                    normalSize();
                     break;
 
                 case ("QUIT"):
@@ -685,5 +686,27 @@ namespace JARVIS
             }
         }
 
+        private void minimize()
+        {
+            this.WindowState = FormWindowState.Minimized;
+            JarvisApp.Icon = SystemIcons.Application;
+            JarvisApp.BalloonTipTitle = "Jarvis";
+            JarvisApp.BalloonTipText = "Running in background";
+            JarvisApp.ShowBalloonTip(1500);
+            JarvisApp.Visible = true;
+        }
+            
+
+        private void normalSize()
+        {
+            this.WindowState = FormWindowState.Normal;
+            JarvisApp.Visible = false;
+        }
+
+        private void JarvisApp_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            normalSize();
+            JarvisApp.Visible = false;
+        }
     }
 }
